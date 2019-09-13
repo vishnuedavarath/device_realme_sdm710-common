@@ -120,9 +120,10 @@ vendor/lib/vendor.qti.hardware.bluetooth_audio@2.0.so|1a1374a4a7bf64cac89520f6c4
 vendor/lib/vendor.qti.hardware.bluetooth_sar@1.0.so|5792daa7c26810bf61006c6d15cbe949bf6d4a79
 vendor/lib/vendor.qti.hardware.btconfigstore@1.0.so|47a838ee1f5729a0244b4d6d3dcaa82e46249c16
 
-# Bluetooth (aptX) - from crosshatch - PD1A.180720.030
-lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
-lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
+# Bluetooth (aptX) - from crosshatch - QP1A.190711.020
+product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
+product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
+
 
 # CDSP
 vendor/bin/cdsprpcd
