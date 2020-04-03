@@ -6,8 +6,6 @@
 
 BOARD_VENDOR := realme
 
-BUILD_BROKEN_DUP_RULES := true
-
 COMMON_PATH := device/realme/sdm710-common
 
 # Architecture
@@ -48,7 +46,6 @@ ifeq ($(TARGET_PREBUILT_KERNEL),)
 endif
 
 # Platform
-BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := sdm710
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno616
 
@@ -77,6 +74,10 @@ TARGET_USES_AOSP_FOR_AUDIO := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth/include
+
+# Broken rules
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_PHONY_TARGETS := true
 
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
@@ -147,6 +148,9 @@ TARGET_USES_MKE2FS := true
 
 PRODUCT_VENDOR_MOVE_ENABLED := true
 TARGET_COPY_OUT_VENDOR := vendor
+
+# QCOM
+BOARD_USES_QCOM_HARDWARE := true
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
