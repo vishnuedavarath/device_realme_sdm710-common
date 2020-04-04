@@ -4,11 +4,24 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# ART
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.boot-dex2oat-threads=8 \
+    dalvik.vm.dex2oat-filter=speed \
+    dalvik.vm.dex2oat-threads=8 \
+    dalvik.vm.image-dex2oat-filter=speed \
+    ro.sys.fw.dex2oat_thread_count=8 \
+    ro.vendor.qti.am.reschedule_service=true
+
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio.deep_buffer.media=true \
+    audio.offload.min.duration.secs=30 \
     audio.offload.video=true \
+    audio.safemedia.bypass=true \
+    persist.audio.in_mmap_delay_micros=100 \
+    persist.audio.out_mmap_delay_micros=150 \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
     persist.vendor.audio.fluence.speaker=true \
@@ -41,7 +54,56 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.hw.aac.encoder=true \
     vendor.audio.noisy.broadcast.delay=600 \
     vendor.audio.offload.pstimeout.secs=3 \
+    vendor.audio.spkr_prot.tx.sampling_rate=48000 \
+    vendor.audio.volume.headset.gain.depcal=true \
+    vendor.audio.snd_card.open.retries=50 \
+    vendor.audio.adm.buffering.ms=12 \
     vendor.voice.path.for.pcm.voip=true
+
+# Audio Feature
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.audio.feature.a2dp_offload.enable=false \
+    vendor.audio.feature.afe_proxy.enable=true \
+    vendor.audio.feature.anc_headset.enable=true \
+    vendor.audio.feature.audiozoom.enable=false \
+    vendor.audio.feature.battery_listener.enable=false \
+    vendor.audio.feature.compr_cap.enable=false \
+    vendor.audio.feature.compress_in.enable=false \
+    vendor.audio.feature.compress_meta_data.enable=true \
+    vendor.audio.feature.compr_voip.enable=true \
+    vendor.audio.feature.concurrent_capture.enable=false \
+    vendor.audio.feature.custom_stereo.enable=true \
+    vendor.audio.feature.deepbuffer_as_primary.enable=false \
+    vendor.audio.feature.display_port.enable=false \
+    vendor.audio.feature.dsm_feedback.enable=false \
+    vendor.audio.feature.dynamic_ecns.enable=false \
+    vendor.audio.feature.ext_hw_plugin.enable=false \
+    vendor.audio.feature.external_dsp.enable=false \
+    vendor.audio.feature.external_speaker.enable=false \
+    vendor.audio.feature.external_speaker_tfa.enable=false \
+    vendor.audio.feature.fluence.enable=false \
+    vendor.audio.feature.fm.enable=true \
+    vendor.audio.feature.hdmi_edid.enable=false \
+    vendor.audio.feature.hdmi_passthrough.enable=false \
+    vendor.audio.feature.hfp.enable=false \
+    vendor.audio.feature.hifi_audio.enable=true \
+    vendor.audio.feature.hwdep_cal.enable=false \
+    vendor.audio.feature.incall_music.enable=false \
+    vendor.audio.feature.multi_voice_session.enable=true \
+    vendor.audio.feature.keep_alive.enable=false \
+    vendor.audio.feature.kpi_optimize.enable=true \
+    vendor.audio.feature.maxx_audio.enable=false \
+    vendor.audio.feature.ras.enable=false \
+    vendor.audio.feature.record_play_concurency.enable=false \
+    vendor.audio.feature.snd_mon.enable=false \
+    vendor.audio.feature.src_trkn.enable=true \
+    vendor.audio.feature.spkr_prot.enable=false \
+    vendor.audio.feature.ssrec.enable=false \
+    vendor.audio.feature.usb_offload.enable=false \
+    vendor.audio.feature.usb_offload_burst_mode.enable=false \
+    vendor.audio.feature.usb_offload_sidetone_volume.enable=false \
+    vendor.audio.feature.vbat.enable=true \
+    vendor.audio.feature.wsa.enable=true
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -79,19 +141,51 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.callstack=1 \
-    debug.egl.hw=0 \
     debug.mdpcomp.logs=0 \
-    debug.sf.hw=0 \
+    debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
     debug.sf.disable_backpressure=1 \
+    debug.sf.enable_gl_backpressure=1 \
+    debug.sf.early_phase_offset_ns=1500000 \
+    debug.sf.early_app_phase_offset_ns=1500000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000 \
+    debug.cpurend.vsync=false \
     persist.sys.sf.color_saturation=1.0 \
+    persist.hwc.enable_vds=1 \
     ro.opengles.version=196610 \
+    ro.qualcomm.cabl=0 \
+    vendor.display.disable_skip_validate=1 \
+    vendor.gralloc.enable_fb_ubwc=1 \
+    vendor.video.disable.ubwc=1 \
+    vendor.display.enable_default_color_mode=0 \
+    video.disable.ubwc=1
     vendor.gralloc.disable_ubwc=0
 
+# Rendering
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.egl.hw=1 \
+    debug.enable.sglscale=1 \
+    debug.sf.disable_hwc=0 \
+    debug.sf.gpu_comp_tiling=1 \
+    debug.sf.recomputecrop=0 \
+    persist.hwc.ptor.enable=true
+
+# FIFO scheduling for UI
+PRODUCT_PROPERTY_OVERRIDES += \
+    sys.use_fifo_ui=1
+
+# Fling
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.min.fling_velocity=160 \
+    ro.max.fling_velocity=20000
+
+# SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=2 \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
+    ro.surface_flinger.protected_contents=true \
     ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
     ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 
