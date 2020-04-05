@@ -60,23 +60,31 @@ ro.vendor.qti.core_ctl_max_cpu=4
 
 # RCS and IMS
 persist.data.iwlan.enable=true
-persist.rcs.supported=0
+persist.rcs.supported=1
 persist.vendor.ims.disableUserAgent=0
 persist.dbg.ims_volte_enable=1
 
 # RIL
-DEVICE_PROVISIONED=1
-persist.radio.atfwd.start=true
-persist.radio.flexmap_type=none
-persist.vendor.radio.force_on_dc=true
-persist.vendor.radio.redir_party_num=1
-persist.vendor.radio.lte_vrte_ltd=1
-persist.vendor.radio.cs_srv_type=1
-persist.vendor.radio.rat_on=combine
-ril.subscription.types=NV,RUIM
-ro.telephony.default_network=22,22
-telephony.lteOnCdmaDevice=1
-rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+DEVICE_PROVISIONED=1 
+persist.radio.atfwd.start=true 
+persist.radio.flexmap_type=none 
+persist.vendor.radio.force_on_dc=true 
+persist.vendor.radio.redir_party_num=1 
+persist.vendor.radio.lte_vrte_ltd=1 
+persist.vendor.radio.cs_srv_type=1 
+persist.vendor.radio.rat_on=combine 
+ril.subscription.types=NV,RUIM 
+ro.telephony.default_network=22,22 
+telephony.lteOnCdmaDevice=1 
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so 
+persist.radio.VT_ENABLE=1 
+persist.radio.volte.dan_support=true 
+persist.data.iwlan=1 
+persist.data.iwlan.ipsec.ap=1 
+persist.sys.cust.lte_config=true 
+service.qti.ims.enabled=1 
+persist.vendor.qti.telephony.vt_cam_interface=2
+ro.telephony.iwlan_operation_mode=legacy
 
 # SSR
 persist.vendor.ssr.enable_ramdumps=0
