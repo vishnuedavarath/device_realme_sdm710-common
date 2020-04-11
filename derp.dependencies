@@ -1,6 +1,14 @@
 [
   {
-    "repository": "android_kernel_realme_sdm710",
-    "target_path": "kernel/realme/sdm710"
+    "remote":"github"
+    "branch":"ten",
+    "repository": "DerpFest-Devices/kernel_realme_RMX1921",
+    "target_path": "kernel/realme/RMX1921"
+  },
+  {
+    "remote":"github",
+    "branch":"lineage-17.0",
+    "repository": "DerpFest-Devices/vendor_realme_RMX1921",
+    "target_path": "vendor/realme"
   }
 ]
