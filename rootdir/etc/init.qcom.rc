@@ -40,12 +40,6 @@ import /vendor/etc/init/hw/init.qcom.test.rc
 #Junhao.Liang@PSW.AD.OppoDebug.LogKit.1080426, 2018/12/04, Add for import init.oppo.debug.diag.rc
 import /vendor/etc/init/hw/init.oppo.debug.diag.rc
 #endif /*VENDOR_EDIT*/
-#ifdef VENDOR_EDIT
-#Fei.Mo@BSP.senosor 2018/10/30 add for init.oppo.vendor.motor.rc
-import /vendor/etc/init/hw/init.oppo.vendor.motor.rc
-#endif /*VENDOR_EDIT*/
-#ifdef VENDOR_EDIT
-#Fei.Mo@BSP.senosor 2018/11/20 add for init.oppo.vendor.motor.rc
 import /vendor/etc/init/hw/init.oppo.sensor.rc
 #endif /*VENDOR_EDIT*/
 on early-init

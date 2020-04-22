@@ -183,7 +183,6 @@ PRODUCT_PACKAGES += \
     init.oppo.reserve.rc \
     init.oppo.sensor.rc \
     init.oppo.vendor.fingerprint.rc \
-    init.oppo.vendor.motor.rc \
     init.qcom.factory.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
