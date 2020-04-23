@@ -142,8 +142,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.callstack=1 \
     debug.mdpcomp.logs=0 \
-    debug.sf.hw=1 \
-    debug.sf.latch_unsignaled=1 \
+    debug.sf.hw=0 \
+    debug.sf.latch_unsignaled=0 \
     debug.sf.disable_backpressure=1 \
     debug.sf.enable_gl_backpressure=1 \
     debug.sf.early_phase_offset_ns=1500000 \
@@ -164,7 +164,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Rendering
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.egl.hw=1 \
+    debug.egl.hw=0 \
     debug.enable.sglscale=1 \
     debug.sf.disable_hwc=0 \
     debug.sf.gpu_comp_tiling=1 \
@@ -182,6 +182,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.has_wide_color_display=true \
+    ro.surface_flinger.has_HDR_display=true \
+    ro.surface_flinger.use_color_management=true \
+    ro.surface_flinger.wcg_composition_dataspace=143261696 \
+    ro.surface_flinger.set_idle_timer_ms=4000 \
+    ro.surface_flinger.set_touch_timer_ms=4000 \
+    ro.surface_flinger.set_display_power_timer_ms=1000 \
+    ro.surface_flinger.use_smart_90_for_video=true \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
