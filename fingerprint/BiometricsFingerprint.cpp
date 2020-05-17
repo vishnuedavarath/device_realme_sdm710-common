@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.realme_sdm710"
-#define LOG_VERBOSE "android.hardware.biometrics.fingerprint@2.1-service.realme_sdm710"
+#define LOG_TAG "android.hardware.biometrics.fingerprint@2.1-service.xt"
+#define LOG_VERBOSE "android.hardware.biometrics.fingerprint@2.1-service.xt"
 
 #include <hardware/hardware.h>
 #include <hardware/fingerprint.h>
@@ -152,15 +152,12 @@ Return<uint64_t> BiometricsFingerprint::getAuthenticatorId()  {
 }
 
 Return<RequestStatus> BiometricsFingerprint::cancel()  {
-    RequestStatus ret = OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->cancel());
-    if (ret == RequestStatus::SYS_OK) {
-        const uint64_t devId = mOppoBiometricsFingerprint->setNotify(mOppoClientCallback);
-        vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintError err = vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintError::ERROR_CANCELED;
-        if (!mOppoClientCallback->onError(devId, err, 0).isOk()) {
-            ALOGE("failed to invoke fingerprint onError callback");
-        }
-    }
-    return ret;
+    if(OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->cancel()) == RequestStatus::SYS_OK)
+       mOppoClientCallback->onError(mOppoBiometricsFingerprint->setNotify(mOppoClientCallback),
+           vendor::oppo::hardware::biometrics::fingerprint::V2_1::FingerprintError::ERROR_CANCELED,
+           0);
+
+    return OppoToAOSPRequestStatus(mOppoBiometricsFingerprint->cancel());
 }
 
 Return<RequestStatus> BiometricsFingerprint::enumerate()  {
