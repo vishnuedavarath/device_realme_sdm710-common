@@ -92,3 +92,6 @@ ro.telephony.iwlan_operation_mode=legacy
 # SSR
 persist.vendor.ssr.enable_ramdumps=0
 persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# SafteyNet
+ro.build.fingerprint=google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys
